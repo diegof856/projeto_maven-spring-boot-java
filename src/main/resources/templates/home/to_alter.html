@@ -7,28 +7,27 @@
 <title>Alteracao</title>
 </head>
 <body>
-<main><h2>Digite o novo nome e email</h2>
-
-<form action="userNew" method="post">
-<label for="newName">Novo nome</label> 
-<input type="text" id="newName" name="newName" required autocomplete="off" > 
-<label for="newEmail">Novo email</label> 
-<input type="text" id="newEmail" name="newEmail" required autocomplete="off" > 
-<input type="submit" value="Enviar">
-</form>
- <p th:text="${message}"></p>
- <p th:text="${message_2}"></p>
- 
- <div th:if="${delete}">
-    	<span th:text="${delete}"></span>
-        
-        <form action="userChoice_Del" method="post">
-    <input type="submit" name="choice_del" value="Sim">
-    <input type="submit" name="choice_del" value="Não">
-    
-   </form>
-    </div>
-    
-</main>
+	<main>
+		<h2>Digite o novo nome e email</h2>
+		<!-- Formulário para alterar o nome e email do usuário -->
+		<form action="userNew" method="post">
+			<label for="newName">Novo nome</label> <input type="text"
+				id="newName" name="newName" required autocomplete="off"> <label
+				for="newEmail">Novo email</label> <input type="text" id="newEmail"
+				name="newEmail" required autocomplete="off"> <input
+				type="submit" value="Enviar">
+		</form>
+		<!-- Exibe mensagem de confirmação da atualização -->
+		<p th:text="${message}"></p>
+		<p th:text="${message_2}"></p>
+		<!-- Se o usuário foi atualizado, exibe a opção para deletar o cadastro -->
+		<div th:if="${delete}">
+			<span th:text="${delete}"></span>
+			<form action="userChoice_Del" method="post">
+				<input type="submit" name="choice_del" value="Sim"> <input
+					type="submit" name="choice_del" value="Não">
+			</form>
+		</div>
+	</main>
 </body>
 </html>

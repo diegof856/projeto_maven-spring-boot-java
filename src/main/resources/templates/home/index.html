@@ -7,42 +7,39 @@
 <title>Atividade 7</title>
 </head>
 <body>
-	<header>Olá <span th:text="${nomeUsuario}"></span></header>
+	<!-- Cabeçalho que exibe o nome do usuário, se disponível -->
+	<header>
+		Olá <span th:text="${nomeUsuario}"></span>
+	</header>
 	<main>
 		<h1>Add User</h1>
+		<!-- Formulário para adicionar um novo usuário -->
 		<form action="addUser" method="post">
-			<label for="name">Name:</label> 
-			<input type="text" id="name" name="name" required autocomplete="off" > 
-			<label for="email">Email:</label> 
-				<input type="email" id="email" name="email" required autocomplete="off"> 
-				<input type="submit" value="Add User">
-
-
+			<label for="name">Name:</label> <input type="text" id="name"
+				name="name" required autocomplete="off"> <label for="email">Email:</label>
+			<input type="email" id="email" name="email" required
+				autocomplete="off"> <input type="submit" value="Add User">
 		</form>
-	 <p th:text="${message}"></p>
-	
-	
-    <div th:if="${to_alter}">
-    	<span th:text="${to_alter}"></span>
-        
-        <form action="userChoice" method="post">
-    <input type="submit" name="choice" value="Sim">
-    <input type="submit" name="choice" value="Não">
-    
-   </form>
-    </div>
-    
-     <div th:if="${delete}">
-    	<span th:text="${delete}"></span>
-        
-        <form action="userChoice_Del" method="post">
-    <input type="submit" name="choice_del" value="Sim">
-    <input type="submit" name="choice_del" value="Não">
-    
-   </form>
-    </div>
-	
-	<p th:text="${msg_delete}"></p>
+		<!-- Exibe mensagem de sucesso ao adicionar o usuário -->
+		<p th:text="${message}"></p>
+		<!-- Se o usuário foi adicionado, exibe a opção para alterar o nome -->
+		<div th:if="${to_alter}">
+			<span th:text="${to_alter}"></span>
+			<form action="userChoice" method="post">
+				<input type="submit" name="choice" value="Sim"> <input
+					type="submit" name="choice" value="Não">
+			</form>
+		</div>
+		<!-- Se o usuário foi adicionado, exibe a opção para deletar o cadastro -->
+		<div th:if="${delete}">
+			<span th:text="${delete}"></span>
+			<form action="userChoice_Del" method="post">
+				<input type="submit" name="choice_del" value="Sim"> <input
+					type="submit" name="choice_del" value="Não">
+			</form>
+		</div>
+		<!-- Exibe mensagem de confirmação de deleção -->
+		<p th:text="${msg_delete}"></p>
 	</main>
 </body>
 </html>
