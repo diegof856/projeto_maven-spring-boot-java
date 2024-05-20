@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Diego Felipe">
+<title>Atividade 7</title>
+</head>
+<body>
+	<header>Olá <span th:text="${nomeUsuario}"></span></header>
+	<main>
+		<h1>Add User</h1>
+		<form action="addUser" method="post">
+			<label for="name">Name:</label> 
+			<input type="text" id="name" name="name" required autocomplete="off" > 
+			<label for="email">Email:</label> 
+				<input type="email" id="email" name="email" required autocomplete="off"> 
+				<input type="submit" value="Add User">
+
+
+		</form>
+	 <p th:text="${message}"></p>
+	
+	
+    <div th:if="${to_alter}">
+    	<span th:text="${to_alter}"></span>
+        
+        <form action="userChoice" method="post">
+    <input type="submit" name="choice" value="Sim">
+    <input type="submit" name="choice" value="Não">
+    
+   </form>
+    </div>
+    
+     <div th:if="${delete}">
+    	<span th:text="${delete}"></span>
+        
+        <form action="userChoice_Del" method="post">
+    <input type="submit" name="choice_del" value="Sim">
+    <input type="submit" name="choice_del" value="Não">
+    
+   </form>
+    </div>
+	
+	<p th:text="${msg_delete}"></p>
+	</main>
+</body>
+</html>
